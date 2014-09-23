@@ -1,0 +1,29 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n" 
+      metal:use-macro="base_bootstrap"
+      i18n:domain="c3smembership">
+  <tal:block metal:fill-slot="middle">
+    <h2>logged in</h2>
+    <div style="text-align:left;">
+      <strong style="color:red;"
+              tal:repeat="message request.session.pop_flash('message_loggedin')">
+	${message}
+      </strong>
+    </div>
+    <div style="text-align:left;">
+      <p>
+        <a href="${request.route_url('logged_in')}"
+           class="btn btn-success">do more</a>
+      </p>
+    </div>
+    <div style="text-align:left;">
+      <p>
+        <a href="${request.route_url('logout')}"
+           class="btn btn-danger">logout</a>
+      </p>
+    </div>
+  </tal:block>
+</html>
